@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter);
+
+
+$main-bg-color: #101010;
+$secondary-color:  #252525;
+$main-text-color: #ffffff;
+
+
+body {
+  font-family: Inter;
+  box-sizing: border-box;
+  margin: 0;
+  background: $main-bg-color;
+
+  .App{
+    margin: auto;
+    max-width: 1440px;
+  }
+
+
+}
+
+
+
