@@ -1,21 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+
+import Icon from "./icons";
 
 export default function Navbar() {
-  return (
-    <div className="navBar">
-      <h1>Logo here</h1>
+	const [query, setQuery] = useState("");
 
-      <div className="searchBar">
-      <input className= 'SearchInput no-outline' 
-                        maxLength='80' 
-                        autoCorrect='off' 
-                        autoCapitalize='off' 
-                        spellCheck='false'
-                        autoFocus={true}
-                        placeholder='Search for Artists, Songs, or Podcasts'
-                        value={query}
-                        onChange={e => setQuery(e.target.value)}/>
-      </div>
-    </div>
-  );
+	return (
+		<div className="navBar">
+			<h1 className="logo">Logo here</h1>
+
+			<div className="searchBar">
+				<div className="iconDiv">
+					<Icon name="Search" />
+				</div>
+				<input
+					className="searchInput no-outline"
+					maxLength="80"
+					autoCorrect="off"
+					autoCapitalize="off"
+					spellCheck="false"
+					placeholder="Search"
+					value={query}
+					onChange={(e) => setQuery(e.target.value)}
+				/>
+			</div>
+			<div className="navLinks">
+				<ul>
+					<li>
+						<a href="/">Explore</a>
+					</li>
+					<li>
+						<a href="/">Security</a>
+					</li>
+					<li>
+						<a href="/">Support</a>
+					</li>
+				</ul>
+			</div>
+
+			<div className="actionItems">
+				<button className="button no-outline">Sell</button>
+
+				<button className="button button-secondary no-outline">Sign In</button>
+			</div>
+		</div>
+	);
 }

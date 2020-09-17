@@ -1,24 +1,141 @@
 @import url(https://fonts.googleapis.com/css2?family=Inter);
 
-
 $main-bg-color: #101010;
-$secondary-color:  #252525;
+$secondary-color: #252525;
 $main-text-color: #ffffff;
-
+$secondary-text-color: rgba(255, 255, 255, 0.7);
+$main-font-size: 16px;
 
 body {
-  font-family: Inter;
-  box-sizing: border-box;
-  margin: 0;
-  background: $main-bg-color;
-
-  .App{
-    margin: auto;
-    max-width: 1440px;
-  }
-
-
+	font-family: Inter, sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	background: $main-bg-color;
 }
 
+.App {
+	margin: auto;
+	max-width: 1440px;
+	padding: 0px 45px;
+}
 
+.no-outline {
+	&:focus {
+		outline: none;
+	}
+}
 
+.button {
+	padding: 10px 30px;
+	border: none;
+	border-radius: 20px;
+	font-weight: 700;
+	color: $secondary-text-color;
+	background: $secondary-color;
+	transition: scale 0.05s;
+	white-space: nowrap;
+	font-size: $main-font-size;
+
+	&:hover {
+		cursor: pointer;
+		transform: scale(1.08);
+	}
+}
+
+.button-secondary {
+	background: none;
+	font-weight: 500;
+}
+
+.navBar {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	height: 89px;
+
+	.logo {
+		color: $main-text-color;
+		font-size: 35;
+		font-weight: 700;
+		white-space: nowrap;
+		margin-right: 50px;
+	}
+
+	.searchBar {
+		position: relative;
+		display: flex;
+		width: 391px;
+		min-width: 290px;
+		height: 41px;
+		background: $secondary-color;
+		border-radius: 20px;
+		margin-right: 72px;
+
+		.iconDiv {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: text;
+			width: 30px;
+
+			svg {
+				color: rgba(255, 255, 255, 0.3);
+				width: 16px;
+				height: 16px;
+			}
+		}
+
+		input {
+			width: 100%;
+			height: 100%;
+			padding: 0px 45px;
+			border: none;
+			background: none;
+			color: $main-text-color;
+			font-weight: 500;
+			font-size: $main-font-size;
+			line-height: 20px;
+
+			&::placeholder {
+				color: $secondary-text-color;
+			}
+		}
+	}
+
+	.navLinks {
+		flex-grow: 1;
+		ul {
+			display: flex;
+			list-style: none;
+			justify-content: space-evenly;
+
+			li {
+				margin-right: 50px;
+			}
+
+			a {
+				color: $main-text-color;
+				text-decoration: none;
+				font-size: $main-font-size;
+				line-height: 20px;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	.actionItems {
+		display: flex;
+		justify-self: flex-end;
+
+		button {
+			margin-left: 30px;
+		}
+	}
+}
