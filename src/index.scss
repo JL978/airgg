@@ -11,12 +11,18 @@ body {
 	box-sizing: border-box;
 	margin: 0;
 	background: $main-bg-color;
+
+	a {
+		text-decoration: none;
+		color: $main-text-color;
+	}
 }
 
 .App {
 	margin: auto;
 	max-width: 1440px;
 	padding: 0px 45px;
+	overflow-y: auto;
 }
 
 .no-outline {
@@ -48,7 +54,7 @@ body {
 }
 
 .button-trend {
-	padding: 0 20px;
+	padding: 10px 20px;
 	display: flex;
 	justify-content: center;
 	min-width: 100px;
@@ -61,6 +67,12 @@ body {
 	.number {
 		opacity: 0.6;
 		margin-left: 15px;
+	}
+
+	&:hover {
+		cursor: pointer;
+		transform: none;
+		opacity: 0.8;
 	}
 }
 
@@ -183,6 +195,21 @@ body {
 		margin-bottom: 25px;
 	}
 
+	h2 {
+		color: $main-text-color;
+		font-size: 20px;
+		font-weight: 700;
+		margin: 10px 0 5px;
+	}
+
+	p {
+		color: $main-text-color;
+		opacity: 0.7;
+		font-size: 14px;
+		font-weight: 300;
+		margin: 0;
+	}
+
 	.trendingMainGrid {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
@@ -194,21 +221,6 @@ body {
 				background: $secondary-color;
 				border-radius: 20px;
 			}
-
-			h2 {
-				color: $main-text-color;
-				font-size: 20px;
-				font-weight: 700;
-				margin: 10px 0 5px;
-			}
-
-			p {
-				color: $main-text-color;
-				opacity: 0.7;
-				font-size: 14px;
-				font-weight: 300;
-				margin: 0;
-			}
 		}
 	}
 
@@ -217,5 +229,26 @@ body {
 		flex-wrap: wrap;
 		margin-top: 40px;
 		justify-content: space-around;
+	}
+
+	.trendingFeatured {
+		margin-top: 50px;
+		display: grid;
+		grid-gap: 47px;
+		grid-template-columns: repeat(2, 1fr);
+
+		.featuredImg {
+			height: 250px;
+			background: $secondary-color;
+			border-radius: 20px;
+		}
+
+		.ctaWrapper {
+			margin-top: 10px;
+			a {
+				font-size: 14px;
+				font-weight: 700;
+			}
+		}
 	}
 }

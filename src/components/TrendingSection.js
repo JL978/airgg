@@ -1,6 +1,7 @@
 import React from "react";
 import TrendingCard from "./TrendingCard";
 import TrendingTag from "./TrendingTag";
+import TrendingFeaturedCard from "./TrendingFeaturedCard";
 
 const dummyTrending = [
 	{
@@ -47,6 +48,21 @@ const dummyOther = [
 	},
 ];
 
+const dummyFeatured = [
+	{
+		title: "Valuable finds under $50",
+		description:
+			"We round up sellers offering top-notch products at an incredible value. Go ahead, take a peek.",
+		cta: "See all",
+	},
+	{
+		title: "Official Aired Team",
+		description:
+			"Checkout products being sold by the official Aired Team. These products are 100% verified and catered to your needs.",
+		cta: "Check it out",
+	},
+];
+
 export default function TrendingSection() {
 	return (
 		<div className="trendingSection">
@@ -63,7 +79,12 @@ export default function TrendingSection() {
 				})}
 				<TrendingTag game={{ name: "Other" }} />
 			</div>
-			<div className="trendingOther"></div>
+
+			<div className="trendingFeatured">
+				{dummyFeatured.map((feature, index) => {
+					return <TrendingFeaturedCard feature={feature} key={index} />;
+				})}
+			</div>
 		</div>
 	);
 }
