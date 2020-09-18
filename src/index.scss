@@ -47,6 +47,23 @@ body {
 	font-weight: 500;
 }
 
+.button-trend {
+	padding: 0 20px;
+	display: flex;
+	justify-content: center;
+	min-width: 100px;
+	margin-top: 10px;
+
+	p {
+		font-size: 11px;
+	}
+
+	.number {
+		opacity: 0.6;
+		margin-left: 15px;
+	}
+}
+
 .navBar {
 	display: flex;
 	align-items: center;
@@ -137,5 +154,68 @@ body {
 		button {
 			margin-left: 30px;
 		}
+	}
+}
+
+.heroSection {
+	margin-top: 50px;
+	text-align: center;
+	background: $secondary-color;
+	height: 304px;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	padding: 0 110px;
+
+	h1 {
+		font-weight: 700;
+		color: $main-text-color;
+		font-size: 35px;
+	}
+}
+
+.trendingSection {
+	margin-top: 25px;
+
+	h1 {
+		font-size: 30px;
+		color: $main-text-color;
+		margin-bottom: 25px;
+	}
+
+	.trendingMainGrid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 15px;
+
+		.trendingCard {
+			.cardImage {
+				height: 180px;
+				background: $secondary-color;
+				border-radius: 20px;
+			}
+
+			h2 {
+				color: $main-text-color;
+				font-size: 20px;
+				font-weight: 700;
+				margin: 10px 0 5px;
+			}
+
+			p {
+				color: $main-text-color;
+				opacity: 0.7;
+				font-size: 14px;
+				font-weight: 300;
+				margin: 0;
+			}
+		}
+	}
+
+	.trendCardsGrid {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 40px;
+		justify-content: space-around;
 	}
 }
