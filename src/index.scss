@@ -16,13 +16,34 @@ body {
 		text-decoration: none;
 		color: $main-text-color;
 	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	p {
+		margin: 0;
+		color: $main-text-color;
+	}
+
+	p {
+		opacity: 0.7;
+		font-size: 14px;
+		font-weight: 300;
+		margin: 0;
+	}
+}
+
+.ellipsis-one-line {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .App {
 	margin: auto;
 	max-width: 1440px;
 	padding: 0px 45px;
-	overflow-y: auto;
 }
 
 .no-outline {
@@ -44,7 +65,6 @@ body {
 
 	&:hover {
 		cursor: pointer;
-		transform: scale(1.08);
 	}
 }
 
@@ -71,8 +91,17 @@ body {
 
 	&:hover {
 		cursor: pointer;
-		transform: none;
-		opacity: 0.8;
+		opacity: 0.7;
+		color: $main-text-color;
+	}
+}
+
+.button-small {
+	padding: 5px 15px;
+	border-radius: 5px;
+
+	&:hover {
+		transform: scale(1.05);
 	}
 }
 
@@ -147,8 +176,6 @@ body {
 			}
 
 			a {
-				color: $main-text-color;
-				text-decoration: none;
 				font-size: $main-font-size;
 				line-height: 20px;
 
@@ -165,6 +192,10 @@ body {
 
 		button {
 			margin-left: 30px;
+
+			&:hover {
+				transform: scale(1.08);
+			}
 		}
 	}
 }
@@ -181,7 +212,6 @@ body {
 
 	h1 {
 		font-weight: 700;
-		color: $main-text-color;
 		font-size: 35px;
 	}
 }
@@ -191,23 +221,14 @@ body {
 
 	h1 {
 		font-size: 30px;
-		color: $main-text-color;
+		font-weight: 700;
 		margin-bottom: 25px;
 	}
 
 	h2 {
-		color: $main-text-color;
 		font-size: 20px;
 		font-weight: 700;
 		margin: 10px 0 5px;
-	}
-
-	p {
-		color: $main-text-color;
-		opacity: 0.7;
-		font-size: 14px;
-		font-weight: 300;
-		margin: 0;
 	}
 
 	.trendingMainGrid {
@@ -215,7 +236,7 @@ body {
 		grid-template-columns: repeat(4, 1fr);
 		grid-gap: 15px;
 
-		.trendingCard {
+		.categoryCard {
 			.cardImage {
 				height: 180px;
 				background: $secondary-color;
@@ -224,18 +245,91 @@ body {
 		}
 	}
 
-	.trendCardsGrid {
+	.trendTagGrid {
 		display: flex;
 		flex-wrap: wrap;
 		margin-top: 40px;
 		justify-content: space-around;
 	}
+}
 
-	.trendingFeatured {
-		margin-top: 50px;
+.benefitsWrapper {
+	margin-top: 70px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 50px;
+
+	.benefitCard {
+		text-align: center;
+		color: $main-text-color;
+		h3 {
+			margin: 10px 0px;
+			font-size: 24px;
+		}
+
+		div {
+			max-width: 270px;
+			margin: auto;
+		}
+
+		p {
+			line-height: 1.5rem;
+		}
+	}
+}
+
+.productRow {
+	h2 {
+		font-size: 30px;
+		margin-bottom: 25px;
+	}
+
+	.productGrid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-gap: 16px;
+
+		h3 {
+			font-size: 16px;
+			margin: 15px 0 10px;
+		}
+
+		.productImg {
+			position: relative;
+			border-radius: 20px;
+			background-color: $secondary-color;
+			&::after {
+				content: "";
+				display: block;
+				padding-bottom: 100%;
+			}
+		}
+
+		.additionalInfo {
+			display: flex;
+			justify-content: space-between;
+
+			.price {
+				font-size: 14px;
+				font-weight: 700;
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.featuredSection {
+	margin-top: 70px;
+
+	.featuredGrid {
+		margin-top: 70px;
 		display: grid;
 		grid-gap: 47px;
 		grid-template-columns: repeat(2, 1fr);
+
+		h2 {
+			margin: 15px 0 10px;
+		}
 
 		.featuredImg {
 			height: 250px;
@@ -243,11 +337,146 @@ body {
 			border-radius: 20px;
 		}
 
+		.descriptionWrapper {
+			max-width: 550px;
+			p {
+				line-height: 1.25rem;
+			}
+		}
+
 		.ctaWrapper {
 			margin-top: 10px;
+
 			a {
 				font-size: 14px;
 				font-weight: 700;
+
+				&::after {
+					content: "→";
+					margin-left: 10px;
+				}
+				&:hover::after {
+					margin-left: 15px;
+				}
+			}
+		}
+	}
+}
+
+.helpWrapper {
+	margin-top: 70px;
+	text-align: center;
+
+	h3 {
+		font-weight: 300;
+		font-size: 22px;
+		margin-bottom: 30px;
+	}
+
+	button {
+		font-weight: 300;
+		font-size: 15px;
+		color: $main-text-color;
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+}
+
+.browseMore {
+	margin-top: 50px;
+	display: grid;
+	grid-gap: 40px;
+	grid-template-rows: 1fr;
+}
+
+footer {
+	background: #1c1c1c;
+
+	.footerWrapper {
+		margin: auto;
+		display: grid;
+		grid-template-columns: 1fr 2fr 1fr;
+		padding: 50px 0;
+		margin-top: 100px;
+		max-width: 1440px;
+
+		.additionalMarking {
+			grid-column: 1 / -1;
+			display: flex;
+			justify-content: space-between;
+			padding-top: 75px;
+		}
+	}
+
+	.info {
+		h1 {
+			opacity: 0.7;
+			margin-bottom: 10px;
+		}
+
+		p {
+			width: 75%;
+			line-height: 1.25rem;
+		}
+
+		.marking {
+			margin-top: 75px;
+		}
+	}
+
+	h4 {
+		opacity: 0.7;
+		font-size: 18px;
+		margin-bottom: 12px;
+	}
+
+	.links {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 1fr auto;
+
+		.linkColumn {
+			ul {
+				list-style: none;
+				padding: 0;
+
+				li {
+					margin-bottom: 9px;
+					a {
+						font-size: 16px;
+						font-weight: 300;
+						opacity: 0.7;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mailList {
+		p {
+			font-size: 16px;
+			font-weight: 300;
+		}
+
+		.form {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			grid-gap: 10px;
+			margin-top: 20px;
+
+			input {
+				border: none;
+				width: 90%;
+				border-radius: 5px;
+				padding: 12px;
+				background: $secondary-color;
+				color: $main-text-color;
 			}
 		}
 	}
