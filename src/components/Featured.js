@@ -50,6 +50,16 @@ const dummyProduct = {
 			seller: "rez",
 			price: 12.75,
 		},
+		{
+			name: "Legendary Adopt Me Something Something",
+			seller: "rez",
+			price: 12.75,
+		},
+		{
+			name: "Legendary Adopt Me Something Something",
+			seller: "rez",
+			price: 12.75,
+		},
 	],
 };
 

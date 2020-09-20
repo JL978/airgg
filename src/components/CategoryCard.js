@@ -4,7 +4,7 @@ export default function CategoryCard({ game }) {
 	return (
 		<div className="categoryCard">
 			<div className="cardImage"></div>
-			<h2>{game.name}</h2>
+			<h2 className="ellipsis-one-line">{game.name}</h2>
 			<p>{game.products} products</p>
 		</div>
 	);

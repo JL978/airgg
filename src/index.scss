@@ -3,6 +3,7 @@
 $main-bg-color: #101010;
 $secondary-color: #252525;
 $main-text-color: #ffffff;
+$highlight: #666666;
 $secondary-text-color: rgba(255, 255, 255, 0.7);
 $main-font-size: 16px;
 
@@ -15,6 +16,9 @@ body {
 	a {
 		text-decoration: none;
 		color: $main-text-color;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	h1,
@@ -28,7 +32,7 @@ body {
 
 	p {
 		opacity: 0.7;
-		font-size: 14px;
+		font-size: 0.8rem;
 		font-weight: 300;
 		margin: 0;
 	}
@@ -40,16 +44,42 @@ body {
 	overflow: hidden;
 }
 
-.App {
-	margin: auto;
-	max-width: 1440px;
-	padding: 0px 45px;
+@mixin card-hover {
+	transition: translate 0.2s;
+
+	&:hover {
+		cursor: pointer;
+		transform: translateY(-2px);
+	}
+}
+
+%card-hover {
+	@include card-hover();
+}
+
+@mixin scrollX {
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+%scrollX {
+	@include scrollX();
 }
 
 .no-outline {
 	&:focus {
 		outline: none;
 	}
+}
+
+.App {
+	margin: auto;
+	max-width: 1440px;
+	padding: 0px 15px;
 }
 
 .button {
@@ -74,14 +104,14 @@ body {
 }
 
 .button-trend {
-	padding: 10px 20px;
+	padding: 15px 20px;
 	display: flex;
 	justify-content: center;
-	min-width: 100px;
+	min-width: 150px;
 	margin-top: 10px;
 
 	p {
-		font-size: 11px;
+		font-size: 2rem;
 	}
 
 	.number {
@@ -91,7 +121,7 @@ body {
 
 	&:hover {
 		cursor: pointer;
-		opacity: 0.7;
+		background: $highlight;
 		color: $main-text-color;
 	}
 }
@@ -113,10 +143,10 @@ body {
 
 	.logo {
 		color: $main-text-color;
-		font-size: 35;
-		font-weight: 700;
+		font-size: 20px;
+		font-weight: 500;
 		white-space: nowrap;
-		margin-right: 50px;
+		margin-right: 10px;
 	}
 
 	.searchBar {
@@ -128,6 +158,7 @@ body {
 		background: $secondary-color;
 		border-radius: 20px;
 		margin-right: 72px;
+		display: none;
 
 		.iconDiv {
 			position: absolute;
@@ -166,6 +197,7 @@ body {
 
 	.navLinks {
 		flex-grow: 1;
+		display: none;
 		ul {
 			display: flex;
 			list-style: none;
@@ -178,10 +210,6 @@ body {
 			a {
 				font-size: $main-font-size;
 				line-height: 20px;
-
-				&:hover {
-					text-decoration: underline;
-				}
 			}
 		}
 	}
@@ -189,6 +217,7 @@ body {
 	.actionItems {
 		display: flex;
 		justify-self: flex-end;
+		display: none;
 
 		button {
 			margin-left: 30px;
@@ -201,97 +230,138 @@ body {
 }
 
 .heroSection {
-	margin-top: 50px;
+	margin-top: 0.1rem;
 	text-align: center;
 	background: $secondary-color;
-	height: 304px;
+	height: 40vw;
+	max-height: 304px;
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
-	padding: 0 110px;
+	padding: 0 1rem;
 
 	h1 {
 		font-weight: 700;
-		font-size: 35px;
+		font-size: 1rem;
 	}
 }
 
 .trendingSection {
-	margin-top: 25px;
+	margin-top: 1rem;
 
 	h1 {
-		font-size: 30px;
+		font-size: 1.1rem;
 		font-weight: 700;
-		margin-bottom: 25px;
+		margin-bottom: 1rem;
 	}
 
 	h2 {
-		font-size: 20px;
+		font-size: 0.8rem;
 		font-weight: 700;
-		margin: 10px 0 5px;
+		margin: 10px 0 3px;
+	}
+
+	p {
+		font-size: 0.75rem;
 	}
 
 	.trendingMainGrid {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(4, 45vw);
 		grid-gap: 15px;
+		@extend %scrollX;
 
 		.categoryCard {
 			.cardImage {
-				height: 180px;
+				height: 28vw;
 				background: $secondary-color;
 				border-radius: 20px;
 			}
+
+			@extend %card-hover;
 		}
 	}
 
 	.trendTagGrid {
-		display: flex;
-		flex-wrap: wrap;
-		margin-top: 40px;
-		justify-content: space-around;
+		display: grid;
+		display: none;
+		grid-auto-flow: column;
+		grid-template-columns: repeat(7, 1fr);
+		grid-gap: 1rem;
+		margin-top: 1rem;
+		@extend %scrollX;
+	}
+}
+
+.button-trend {
+	padding: 6px 10px;
+	width: min-content;
+	margin-top: 10px;
+
+	p {
+		font-size: 0.7rem;
+	}
+
+	.number {
+		opacity: 0.6;
+		margin-left: 12px;
+	}
+
+	&:hover {
+		cursor: pointer;
+		background: $highlight;
+		color: $main-text-color;
 	}
 }
 
 .benefitsWrapper {
-	margin-top: 70px;
+	margin-top: 4rem;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 50px;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(3, 1fr);
+	grid-auto-flow: row;
+	grid-gap: 25px;
 
 	.benefitCard {
 		text-align: center;
 		color: $main-text-color;
 		h3 {
 			margin: 10px 0px;
-			font-size: 24px;
+			font-size: 1.2rem;
 		}
 
 		div {
-			max-width: 270px;
+			max-width: 250px;
 			margin: auto;
 		}
 
 		p {
 			line-height: 1.5rem;
+			font-size: 0.8rem;
 		}
 	}
 }
 
 .productRow {
 	h2 {
-		font-size: 30px;
-		margin-bottom: 25px;
+		font-size: 1.1rem;
+		margin-bottom: 1rem;
+	}
+
+	.productCard {
+		@extend %card-hover;
 	}
 
 	.productGrid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		grid-template-columns: repeat(8, 20vw);
+		grid-auto-flow: column;
 		grid-gap: 16px;
+		@extend %scrollX;
 
 		h3 {
-			font-size: 16px;
-			margin: 15px 0 10px;
+			font-size: 0.8rem;
+			margin: 10px 0 7px;
 		}
 
 		.productImg {
@@ -310,7 +380,7 @@ body {
 			justify-content: space-between;
 
 			.price {
-				font-size: 14px;
+				font-size: 0.75rem;
 				font-weight: 700;
 				opacity: 1;
 			}
@@ -319,25 +389,30 @@ body {
 }
 
 .featuredSection {
-	margin-top: 70px;
+	margin-top: 2rem;
 
 	.featuredGrid {
-		margin-top: 70px;
+		margin-top: 3rem;
 		display: grid;
+		justify-items: center;
 		grid-gap: 47px;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr);
 
 		h2 {
-			margin: 15px 0 10px;
+			font-size: 1rem;
+			margin: 10px 0 7px;
 		}
 
 		.featuredImg {
-			height: 250px;
+			width: 70vw;
+			height: 35vw;
 			background: $secondary-color;
 			border-radius: 20px;
 		}
 
 		.descriptionWrapper {
+			width: 75vw;
 			max-width: 550px;
 			p {
 				line-height: 1.25rem;
@@ -348,11 +423,12 @@ body {
 			margin-top: 10px;
 
 			a {
-				font-size: 14px;
+				font-size: 13px;
 				font-weight: 700;
 
 				&::after {
 					content: "→";
+					display: inline-block;
 					margin-left: 10px;
 				}
 				&:hover::after {
@@ -364,39 +440,43 @@ body {
 }
 
 .helpWrapper {
-	margin-top: 70px;
+	margin-top: 4rem;
 	text-align: center;
 
 	h3 {
 		font-weight: 300;
-		font-size: 22px;
+		font-size: 1.1rem;
 		margin-bottom: 30px;
 	}
 
 	button {
 		font-weight: 300;
-		font-size: 15px;
+		font-size: 0.7rem;
 		color: $main-text-color;
 		&:hover {
-			transform: scale(1.05);
+			background: $highlight;
 		}
 	}
 }
 
 .browseMore {
-	margin-top: 50px;
-	display: grid;
-	grid-gap: 40px;
-	grid-template-rows: 1fr;
+	display: block;
+	margin-top: 4rem;
+	width: 100%;
+
+	& > *:not(:first-child) {
+		margin-top: 2rem;
+	}
 }
 
 footer {
 	background: #1c1c1c;
+	padding: 0 15px;
 
 	.footerWrapper {
 		margin: auto;
 		display: grid;
-		grid-template-columns: 1fr 2fr 1fr;
+		grid-template-columns: 2fr 3fr;
 		padding: 50px 0;
 		margin-top: 100px;
 		max-width: 1440px;
@@ -459,6 +539,8 @@ footer {
 	}
 
 	.mailList {
+		grid-column: 2/-1;
+
 		p {
 			font-size: 16px;
 			font-weight: 300;
@@ -477,6 +559,398 @@ footer {
 				padding: 12px;
 				background: $secondary-color;
 				color: $main-text-color;
+			}
+		}
+	}
+}
+
+//Extra large screens
+@media only screen and (min-width: 1270px) {
+	.navBar {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		height: 89px;
+
+		.logo {
+			color: $main-text-color;
+			font-size: 35px;
+			font-weight: 700;
+			white-space: nowrap;
+			margin-right: 50px;
+		}
+
+		.searchBar {
+			position: relative;
+			display: flex;
+			width: 391px;
+			min-width: 290px;
+			height: 41px;
+			background: $secondary-color;
+			border-radius: 20px;
+			margin-right: 72px;
+
+			.iconDiv {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: text;
+				width: 30px;
+
+				svg {
+					color: rgba(255, 255, 255, 0.3);
+					width: 16px;
+					height: 16px;
+				}
+			}
+
+			input {
+				width: 100%;
+				height: 100%;
+				padding: 0px 45px;
+				border: none;
+				background: none;
+				color: $main-text-color;
+				font-weight: 500;
+				font-size: $main-font-size;
+				line-height: 20px;
+
+				&::placeholder {
+					color: $secondary-text-color;
+				}
+			}
+		}
+
+		.navLinks {
+			display: block;
+			flex-grow: 1;
+			ul {
+				display: flex;
+				list-style: none;
+				justify-content: space-evenly;
+
+				li {
+					margin-right: 50px;
+				}
+
+				a {
+					font-size: $main-font-size;
+					line-height: 20px;
+				}
+			}
+		}
+
+		.actionItems {
+			display: flex;
+			justify-self: flex-end;
+
+			button {
+				margin-left: 30px;
+
+				&:hover {
+					transform: scale(1.08);
+				}
+			}
+		}
+	}
+
+	.heroSection {
+		margin-top: 50px;
+		text-align: center;
+		background: $secondary-color;
+		height: 20vw;
+		max-height: 304px;
+		border-radius: 20px;
+		display: flex;
+		align-items: center;
+		padding: 0 110px;
+
+		h1 {
+			font-weight: 700;
+			font-size: 35px;
+		}
+	}
+
+	.trendingSection {
+		margin-top: 25px;
+
+		h1 {
+			font-size: 30px;
+			font-weight: 700;
+			margin-bottom: 25px;
+		}
+
+		h2 {
+			font-size: 20px;
+			font-weight: 700;
+			margin: 10px 0 5px;
+		}
+
+		.trendingMainGrid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 15px;
+
+			.categoryCard {
+				.cardImage {
+					height: 180px;
+					background: $secondary-color;
+					border-radius: 20px;
+				}
+
+				@include card-hover;
+			}
+		}
+
+		.trendTagGrid {
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 40px;
+			justify-content: space-around;
+		}
+	}
+
+	.benefitsWrapper {
+		margin-top: 70px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 1fr;
+		grid-gap: 50px;
+
+		.benefitCard {
+			text-align: center;
+			color: $main-text-color;
+			h3 {
+				margin: 10px 0px;
+				font-size: 24px;
+			}
+
+			div {
+				max-width: 270px;
+				margin: auto;
+			}
+
+			p {
+				line-height: 1.5rem;
+			}
+		}
+	}
+
+	.productRow {
+		h2 {
+			font-size: 30px;
+			margin-bottom: 25px;
+		}
+
+		.productCard {
+			@include card-hover;
+		}
+
+		.productGrid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			grid-gap: 16px;
+
+			h3 {
+				font-size: 16px;
+				margin: 15px 0 10px;
+			}
+
+			.productImg {
+				position: relative;
+				border-radius: 20px;
+				background-color: $secondary-color;
+				&::after {
+					content: "";
+					display: block;
+					padding-bottom: 100%;
+				}
+			}
+
+			.additionalInfo {
+				display: flex;
+				justify-content: space-between;
+
+				.price {
+					font-size: 14px;
+					font-weight: 700;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.featuredSection {
+		margin-top: 70px;
+
+		.featuredGrid {
+			margin-top: 70px;
+			display: grid;
+			justify-items: start;
+			grid-gap: 47px;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: 1fr;
+
+			.featuredCard {
+				width: 100%;
+			}
+
+			h2 {
+				margin: 15px 0 10px;
+			}
+
+			.featuredImg {
+				height: 250px;
+				width: 100%;
+				background: $secondary-color;
+				border-radius: 20px;
+			}
+
+			.descriptionWrapper {
+				max-width: 550px;
+				p {
+					line-height: 1.25rem;
+				}
+			}
+
+			.ctaWrapper {
+				margin-top: 10px;
+
+				a {
+					font-size: 14px;
+					font-weight: 700;
+
+					&::after {
+						content: "→";
+						display: inline-block;
+						margin-left: 10px;
+					}
+					&:hover::after {
+						margin-left: 15px;
+					}
+				}
+			}
+		}
+	}
+
+	.helpWrapper {
+		margin-top: 70px;
+		text-align: center;
+
+		h3 {
+			font-weight: 300;
+			font-size: 22px;
+			margin-bottom: 30px;
+		}
+
+		button {
+			font-weight: 300;
+			font-size: 15px;
+			color: $main-text-color;
+			&:hover {
+				background: $highlight;
+			}
+		}
+	}
+
+	.browseMore {
+		margin-top: 50px;
+	}
+
+	footer {
+		background: #1c1c1c;
+
+		.footerWrapper {
+			margin: auto;
+			display: grid;
+			grid-template-columns: 1fr 2fr 1fr;
+			padding: 50px 0;
+			margin-top: 100px;
+			max-width: 1440px;
+
+			.additionalMarking {
+				grid-column: 1 / -1;
+				display: flex;
+				justify-content: space-between;
+				padding-top: 75px;
+			}
+		}
+
+		.info {
+			h1 {
+				opacity: 0.7;
+				margin-bottom: 10px;
+			}
+
+			p {
+				width: 75%;
+				line-height: 1.25rem;
+			}
+
+			.marking {
+				margin-top: 75px;
+			}
+		}
+
+		h4 {
+			opacity: 0.7;
+			font-size: 18px;
+			margin-bottom: 12px;
+		}
+
+		.links {
+			display: grid;
+			grid-gap: 20px;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: 1fr auto;
+
+			.linkColumn {
+				ul {
+					list-style: none;
+					padding: 0;
+
+					li {
+						margin-bottom: 9px;
+						a {
+							font-size: 16px;
+							font-weight: 300;
+							opacity: 0.7;
+
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.mailList {
+			grid-column: 3/-1;
+
+			p {
+				font-size: 16px;
+				font-weight: 300;
+			}
+
+			.form {
+				display: grid;
+				grid-template-columns: 1fr auto;
+				grid-gap: 10px;
+				margin-top: 20px;
+
+				input {
+					border: none;
+					width: 90%;
+					border-radius: 5px;
+					padding: 12px;
+					background: $secondary-color;
+					color: $main-text-color;
+				}
 			}
 		}
 	}

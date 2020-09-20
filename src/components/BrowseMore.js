@@ -35,6 +35,16 @@ const dummyBrowse = [
 				seller: "rez",
 				price: 12.75,
 			},
+			{
+				name: "Legendary Adopt Me Something Something",
+				seller: "rez",
+				price: 12.75,
+			},
+			{
+				name: "Legendary Adopt Me Something Something",
+				seller: "rez",
+				price: 12.75,
+			},
 		],
 	},
 	{
@@ -70,11 +80,31 @@ const dummyBrowse = [
 				seller: "rez",
 				price: 12.75,
 			},
+			{
+				name: "Legendary Adopt Me Something Something",
+				seller: "rez",
+				price: 12.75,
+			},
+			{
+				name: "Legendary Adopt Me Something Something",
+				seller: "rez",
+				price: 12.75,
+			},
 		],
 	},
 	{
 		category: "Latest Release",
 		products: [
+			{
+				name: "Legendary Adopt Me Something Something",
+				seller: "rez",
+				price: 12.75,
+			},
+			{
+				name: "Legendary Adopt Me Something Something",
+				seller: "rez",
+				price: 12.75,
+			},
 			{
 				name: "Legendary Adopt Me Something Something",
 				seller: "rez",
