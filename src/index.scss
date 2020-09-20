@@ -235,7 +235,7 @@ body {
 	background: $secondary-color;
 	height: 40vw;
 	min-height: 185px;
-	max-height: 304px;
+	max-height: 270px;
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
@@ -963,6 +963,7 @@ footer {
 			.featuredImg {
 				width: 100%;
 				height: 30vw;
+				max-height: 250px;
 			}
 
 			.descriptionWrapper {
@@ -1027,6 +1028,7 @@ footer {
 
 			.additionalInfo {
 				display: flex;
+				flex-direction: row;
 				justify-content: space-between;
 				p {
 					font-size: 0.7rem;
@@ -1048,16 +1050,19 @@ footer {
 		.footerWrapper {
 			grid-template-columns: 4fr 5fr;
 			grid-template-rows: 1fr auto;
+
+			.additionalMarking {
+				justify-content: space-between;
+				flex-direction: row;
+				p {
+					width: max-content;
+				}
+			}
 		}
 
 		.mailList {
 			grid-column: 1/2;
-			width: 75%;
-		}
-
-		.additionalMarking {
-			display: flex;
-			justify-content: space-between;
+			width: 100%;
 		}
 	}
 
@@ -1091,6 +1096,426 @@ footer {
 	.productRow {
 		.productGrid {
 			grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+		}
+	}
+}
+
+//Normal screens
+@media only screen and (min-width: 960px) {
+	.navBar {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		height: 89px;
+
+		.logo {
+			font-size: 30px;
+			margin-right: 10px;
+		}
+
+		.searchBar {
+			position: relative;
+			display: flex;
+			width: 391px;
+			min-width: 290px;
+			height: 41px;
+			background: $secondary-color;
+			border-radius: 20px;
+			margin-right: 72px;
+			display: none;
+
+			.iconDiv {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: text;
+				width: 30px;
+
+				svg {
+					color: rgba(255, 255, 255, 0.3);
+					width: 16px;
+					height: 16px;
+				}
+			}
+
+			input {
+				width: 100%;
+				height: 100%;
+				padding: 0px 45px;
+				border: none;
+				background: none;
+				color: $main-text-color;
+				font-weight: 500;
+				font-size: $main-font-size;
+				line-height: 20px;
+
+				&::placeholder {
+					color: $secondary-text-color;
+				}
+			}
+		}
+
+		.navLinks {
+			flex-grow: 1;
+			display: none;
+			ul {
+				display: flex;
+				list-style: none;
+				justify-content: space-evenly;
+
+				li {
+					margin-right: 50px;
+				}
+
+				a {
+					font-size: $main-font-size;
+					line-height: 20px;
+				}
+			}
+		}
+
+		.actionItems {
+			display: flex;
+			justify-self: flex-end;
+			display: none;
+
+			button {
+				margin-left: 30px;
+
+				&:hover {
+					transform: scale(1.08);
+				}
+			}
+		}
+	}
+
+	.heroSection {
+		margin-top: 2rem;
+		padding: 0 2.5rem;
+
+		h1 {
+			font-weight: 700;
+			font-size: 1.7rem;
+		}
+	}
+
+	.trendingSection {
+		margin-top: 1.7rem;
+
+		h1 {
+			font-size: 1.5rem;
+		}
+
+		h2 {
+			font-size: 1rem;
+			margin: 12px 0 5px;
+		}
+	}
+
+	.button-trend {
+		padding: 7px 10px;
+
+		p {
+			font-size: 0.75rem;
+		}
+	}
+
+	.benefitsWrapper {
+		justify-content: space-around;
+
+		.benefitCard {
+			h3 {
+				font-size: 1.1rem;
+			}
+
+			p {
+				font-size: 0.9rem;
+			}
+		}
+	}
+
+	.featuredSection {
+		margin-top: 3rem;
+
+		.featuredGrid {
+			grid-gap: 25px;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: 1fr;
+			align-items: left;
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			.descriptionWrapper {
+				width: 80%;
+
+				p {
+					font-size: 0.9rem;
+				}
+			}
+
+			.ctaWrapper {
+				a {
+					font-size: 0.95rem;
+				}
+			}
+		}
+	}
+
+	.productRow {
+		h2 {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+
+		.productCard {
+			@include card-hover;
+		}
+
+		.productGrid {
+			grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+			grid-auto-flow: unset;
+			grid-gap: 16px;
+
+			h3 {
+				font-size: 0.75rem;
+				margin: 10px 0 7px;
+			}
+
+			.productImg {
+				position: relative;
+				border-radius: 20px;
+				background-color: $secondary-color;
+				&::after {
+					content: "";
+					display: block;
+					padding-bottom: 100%;
+				}
+			}
+
+			.additionalInfo {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				p {
+					font-size: 0.7rem;
+				}
+				.price {
+					font-weight: 700;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.helpWrapper {
+		h3 {
+			font-size: 1.25rem;
+		}
+
+		button {
+			font-size: 0.9rem;
+		}
+	}
+
+	footer {
+		.footerWrapper {
+			grid-template-columns: 4fr 5fr;
+			grid-template-rows: 1fr auto;
+
+			.additionalMarking {
+				justify-content: space-between;
+				flex-direction: row;
+				p {
+					width: max-content;
+				}
+			}
+		}
+
+		.mailList {
+			grid-column: 1/2;
+			width: 100%;
+		}
+	}
+
+	.mailList {
+		grid-column: 2/-1;
+
+		p {
+			font-size: 16px;
+			font-weight: 300;
+		}
+
+		.form {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			grid-gap: 10px;
+			margin-top: 20px;
+
+			input {
+				border: none;
+				width: 90%;
+				border-radius: 5px;
+				padding: 12px;
+				background: $secondary-color;
+				color: $main-text-color;
+			}
+		}
+	}
+}
+
+//Large screens
+@media only screen and (min-width: 1160px) {
+	.navBar {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		height: 89px;
+
+		.logo {
+			font-size: 30px;
+			margin-right: 10px;
+		}
+
+		.searchBar {
+			position: relative;
+			display: flex;
+			width: 391px;
+			min-width: 290px;
+			height: 41px;
+			background: $secondary-color;
+			border-radius: 20px;
+			margin-right: 72px;
+			display: none;
+
+			.iconDiv {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: text;
+				width: 30px;
+
+				svg {
+					color: rgba(255, 255, 255, 0.3);
+					width: 16px;
+					height: 16px;
+				}
+			}
+
+			input {
+				width: 100%;
+				height: 100%;
+				padding: 0px 45px;
+				border: none;
+				background: none;
+				color: $main-text-color;
+				font-weight: 500;
+				font-size: $main-font-size;
+				line-height: 20px;
+
+				&::placeholder {
+					color: $secondary-text-color;
+				}
+			}
+		}
+
+		.navLinks {
+			flex-grow: 1;
+			display: none;
+			ul {
+				display: flex;
+				list-style: none;
+				justify-content: space-evenly;
+
+				li {
+					margin-right: 50px;
+				}
+
+				a {
+					font-size: $main-font-size;
+					line-height: 20px;
+				}
+			}
+		}
+
+		.actionItems {
+			display: flex;
+			justify-self: flex-end;
+			display: none;
+
+			button {
+				margin-left: 30px;
+
+				&:hover {
+					transform: scale(1.08);
+				}
+			}
+		}
+	}
+
+	.heroSection {
+		margin-top: 2rem;
+		padding: 0 2.75rem;
+
+		h1 {
+			font-size: 1.85rem;
+		}
+	}
+
+	.helpWrapper {
+		h3 {
+			font-size: 1.25rem;
+		}
+
+		button {
+			font-size: 0.9rem;
+		}
+	}
+
+	footer {
+		.footerWrapper {
+			grid-template-columns: 1fr 2fr 1fr;
+			padding: 50px 0;
+		}
+
+		.info {
+			p {
+				width: 75%;
+				line-height: 1.35rem;
+			}
+		}
+
+		h4 {
+			font-size: 1rem;
+		}
+
+		.links {
+			.linkColumn {
+				ul {
+					li {
+						a {
+							font-size: 0.95rem;
+						}
+					}
+				}
+			}
+		}
+
+		.mailList {
+			grid-column: 3/-1;
+			margin-top: 0;
+			p {
+				font-size: 0.95rem;
+			}
 		}
 	}
 }
@@ -1283,7 +1708,7 @@ footer {
 
 		.productGrid {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 			grid-gap: 16px;
 
 			h3 {
