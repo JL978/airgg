@@ -43,6 +43,10 @@ export default function Navbar() {
 
 				<button className="button button-secondary no-outline">Sign In</button>
 			</div>
+
+			<button>
+				<div className="burgerMenu no-outline"></div>
+			</button>
 		</div>
 	);
 }
