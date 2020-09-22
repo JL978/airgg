@@ -50,9 +50,9 @@ export default function Navbar() {
 			</div>
 
 			<div className="mobileButtons">
-				<button className="button-search">
+				{/* <button className="button-search">
 					<Icon name="Search" />
-				</button>
+				</button> */}
 				<button
 					className="button-burger no-outline"
 					onClick={() => setpopUp(!popUp)}
