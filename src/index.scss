@@ -13,7 +13,7 @@ body {
 	box-sizing: border-box;
 	margin: 0;
 	background: $main-bg-color;
-
+	overflow-x: hidden;
 	a {
 		text-decoration: none;
 		color: $main-text-color;
@@ -81,18 +81,23 @@ body {
 	margin: auto;
 	max-width: 1440px;
 	padding: 0px 15px;
+	overflow-x: hidden;
+}
+
+.root {
+	overflow-x: hidden;
 }
 
 .button {
-	padding: 10px 30px;
+	padding: 0.5rem 1rem;
 	border: none;
 	border-radius: 20px;
-	font-weight: 700;
+	font-weight: 500;
 	color: $secondary-text-color;
 	background: $secondary-color;
 	transition: scale 0.05s;
 	white-space: nowrap;
-	font-size: $main-font-size;
+	font-size: 0.9rem;
 
 	&:hover {
 		cursor: pointer;
@@ -150,44 +155,72 @@ body {
 		margin-right: 10px;
 	}
 
-	button {
-		width: 20px;
-		height: 20px;
+	.mobileButtons {
 		display: flex;
-		align-items: center;
-		background: none;
-		border: none;
-		padding: 0;
 
-		.burgerMenu {
-			position: relative;
-			width: 100%;
-			height: 2px;
-			background: $main-text-color;
+		button {
+			width: 20px;
+			height: 20px;
+			display: flex;
+			align-items: center;
+			background: none;
+			border: none;
+			padding: 0;
+			color: $main-text-color;
+		}
 
-			&::before,
-			&::after {
-				content: "";
-				position: absolute;
+		.button-search {
+			margin-right: 1rem;
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.button-burger {
+			z-index: 11;
+
+			.burger {
+				position: relative;
 				width: 100%;
 				height: 2px;
-				left: 0;
-				top: -7px;
 				background: $main-text-color;
-			}
+				transition: all 0.2s;
 
-			&::after {
-				top: 7px;
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					top: -7px;
+					background: $main-text-color;
+					transition: rotate 2s;
+				}
+
+				&::after {
+					top: 7px;
+				}
+
+				&.close {
+					transform: rotate(45deg);
+				}
+				&.close::before,
+				&.close::after {
+					transition: rotate 2s;
+					top: 0px;
+					transform: rotate(-90deg);
+				}
 			}
 		}
 	}
 
 	.searchBar {
-		position: relative;
+		position: absolute;
 		display: flex;
-		width: 391px;
-		min-width: 290px;
-		height: 41px;
+		width: 100%;
+		height: 1rem;
 		background: $secondary-color;
 		border-radius: 20px;
 		margin-right: 72px;
@@ -228,35 +261,59 @@ body {
 		}
 	}
 
-	.navLinks {
-		flex-grow: 1;
-		display: none;
-		ul {
+	.popUpItems {
+		position: fixed;
+		right: 0px;
+		top: 0px;
+		padding: 4rem 4rem;
+		background: $main-bg-color;
+		height: 100vh;
+		z-index: 10;
+		transition: all 0.2s;
+		overflow-x: hidden;
+		transform: translateX(100%);
+
+		&.open {
+			transform: translateX(0);
+		}
+
+		.navLinks {
 			display: flex;
-			list-style: none;
-			justify-content: space-evenly;
+			justify-content: center;
+			border-bottom: 1px solid $main-text-color;
 
-			li {
-				margin-right: 50px;
-			}
+			ul {
+				display: flex;
+				list-style: none;
+				flex-direction: column;
+				padding: 0px;
+				margin: 0px;
+				margin-top: 1rem;
 
-			a {
-				font-size: $main-font-size;
-				line-height: 20px;
+				li {
+					margin-bottom: 1.5rem;
+					text-align: center;
+				}
+
+				a {
+					font-size: 0.9rem;
+					line-height: 20px;
+				}
 			}
 		}
-	}
 
-	.actionItems {
-		display: flex;
-		justify-self: flex-end;
-		display: none;
+		.actionItems {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin-top: 1rem;
 
-		button {
-			margin-left: 30px;
+			button {
+				margin-bottom: 0.5rem;
 
-			&:hover {
-				transform: scale(1.08);
+				&:hover {
+					transform: scale(1.08);
+				}
 			}
 		}
 	}

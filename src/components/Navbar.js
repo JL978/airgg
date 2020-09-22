@@ -4,6 +4,7 @@ import Icon from "./icons";
 
 export default function Navbar() {
 	const [query, setQuery] = useState("");
+	const [popUp, setpopUp] = useState(false);
 
 	return (
 		<div className="navBar">
@@ -24,29 +25,41 @@ export default function Navbar() {
 					onChange={(e) => setQuery(e.target.value)}
 				/>
 			</div>
-			<div className="navLinks">
-				<ul>
-					<li>
-						<a href="/">Explore</a>
-					</li>
-					<li>
-						<a href="/">Security</a>
-					</li>
-					<li>
-						<a href="/">Support</a>
-					</li>
-				</ul>
+			<div className={`popUpItems ${popUp ? "open" : ""}`}>
+				<div className="navLinks">
+					<ul>
+						<li>
+							<a href="/">Explore</a>
+						</li>
+						<li>
+							<a href="/">Security</a>
+						</li>
+						<li>
+							<a href="/">Support</a>
+						</li>
+					</ul>
+				</div>
+
+				<div className="actionItems">
+					<button className="button no-outline">Sell</button>
+
+					<button className="button button-secondary no-outline">
+						Sign In
+					</button>
+				</div>
 			</div>
 
-			<div className="actionItems">
-				<button className="button no-outline">Sell</button>
-
-				<button className="button button-secondary no-outline">Sign In</button>
+			<div className="mobileButtons">
+				<button className="button-search">
+					<Icon name="Search" />
+				</button>
+				<button
+					className="button-burger no-outline"
+					onClick={() => setpopUp(!popUp)}
+				>
+					<div className={`burger ${popUp ? "close" : ""}`}></div>
+				</button>
 			</div>
-
-			<button>
-				<div className="burgerMenu no-outline"></div>
-			</button>
 		</div>
 	);
 }
