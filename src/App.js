@@ -1,4 +1,5 @@
 import React from "react";
+import FrontPage from "./components/FrontPage";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrendingSection from "./components/TrendingSection";
@@ -9,7 +10,7 @@ import BrowseMore from "./components/BrowseMore";
 
 function App() {
 	return (
-		<div className="App">
+		<FrontPage>
 			<Navbar />
 			<Hero />
 			<TrendingSection />
@@ -17,7 +18,7 @@ function App() {
 			<Featured />
 			<HelpCTA />
 			<BrowseMore />
-		</div>
+		</FrontPage>
 	);
 }
 

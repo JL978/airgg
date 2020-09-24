@@ -45,12 +45,14 @@ body {
 	overflow: hidden;
 }
 
+$card-hover-distance: -5px;
+
 @mixin card-hover {
-	transition: translate 0.2s;
+	transition: all 0.2s;
 
 	&:hover {
 		cursor: pointer;
-		transform: translateY(-2px);
+		transform: translateY($card-hover-distance);
 	}
 }
 
@@ -77,7 +79,7 @@ body {
 	}
 }
 
-.App {
+.frontPage {
 	margin: auto;
 	max-width: 1440px;
 	padding: 0px 15px;
@@ -341,7 +343,7 @@ body {
 	h1 {
 		font-size: 1.1rem;
 		font-weight: 700;
-		margin-bottom: 1rem;
+		margin-bottom: calc(1rem + $card-hover-distance);
 	}
 
 	h2 {
@@ -356,6 +358,7 @@ body {
 
 	.trendingMainGrid {
 		display: grid;
+		padding-top: -$card-hover-distance;
 		grid-template-columns: repeat(4, 45vw);
 		grid-gap: 15px;
 		@extend %scrollX;
@@ -433,11 +436,12 @@ body {
 .productRow {
 	h2 {
 		font-size: 1.1rem;
-		margin-bottom: 1rem;
+		margin-bottom: calc(1rem + $card-hover-distance);
 	}
 
 	.productCard {
 		@extend %card-hover;
+		padding-top: -$card-hover-distance;
 	}
 
 	.productGrid {
@@ -454,6 +458,7 @@ body {
 
 		.productImg {
 			position: relative;
+			overflow-y: visible;
 			border-radius: 20px;
 			background-color: $secondary-color;
 			&::after {
@@ -658,7 +663,7 @@ footer {
 @media only screen and (min-width: 600px) {
 	$page-padding: 0px 30px;
 
-	.App {
+	.frontPage {
 		padding: $page-padding;
 	}
 
