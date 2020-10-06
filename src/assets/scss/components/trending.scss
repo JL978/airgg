@@ -1,0 +1,121 @@
+.trendingSection {
+	margin-top: 1rem;
+
+	h1 {
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin-bottom: calc(1rem + $card-hover-distance);
+	}
+
+	h2 {
+		font-size: 0.8rem;
+		font-weight: 700;
+		margin: 10px 0 3px;
+	}
+
+	p {
+		font-size: 0.75rem;
+	}
+
+	.trendingMainGrid {
+		display: grid;
+		padding-top: -$card-hover-distance;
+		grid-template-columns: repeat(4, 45vw);
+		grid-gap: 15px;
+		@extend %scrollX;
+
+		.categoryCard {
+			.cardImage {
+				height: 28vw;
+				background: $secondary-color;
+				border-radius: 20px;
+			}
+
+			@extend %card-hover;
+		}
+	}
+
+	.trendTagGrid {
+		display: grid;
+		grid-auto-flow: column;
+		grid-template-columns: repeat(7, auto);
+		grid-gap: 1rem;
+		margin-top: 1rem;
+		@extend %scrollX;
+	}
+}
+
+@media only screen and (min-width: 730px) {
+	.trendingSection {
+		margin-top: 1.5rem;
+
+		h1 {
+			font-size: 1.25rem;
+			margin-bottom: 1rem;
+		}
+
+		h2 {
+			font-size: 0.8rem;
+			margin: 10px 0 3px;
+		}
+
+		p {
+			font-size: 0.75rem;
+		}
+
+		.trendingMainGrid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+
+			.categoryCard {
+				.cardImage {
+					height: 20vw;
+					max-height: 175px;
+				}
+			}
+		}
+
+		.trendTagGrid {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-top: 0.7rem;
+			overflow-x: unset;
+		}
+	}
+}
+
+@media only screen and (min-width: 960px) {
+	.trendingSection {
+		margin-top: 1.7rem;
+
+		h1 {
+			font-size: 1.5rem;
+		}
+
+		h2 {
+			font-size: 1rem;
+			margin: 12px 0 5px;
+		}
+	}
+}
+
+@media only screen and (min-width: 1270px) {
+	.trendingSection {
+		margin-top: 25px;
+
+		h1 {
+			font-size: 30px;
+			margin-bottom: 25px;
+		}
+
+		h2 {
+			font-size: 20px;
+			margin: 10px 0 5px;
+		}
+
+		.trendTagGrid {
+			margin-top: 40px;
+		}
+	}
+}

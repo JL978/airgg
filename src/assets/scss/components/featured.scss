@@ -1,0 +1,185 @@
+.featuredSection {
+	margin-top: 2rem;
+
+	.featuredGrid {
+		margin-top: 3rem;
+		display: grid;
+		justify-items: center;
+		grid-gap: 25px;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr);
+
+		h2 {
+			font-size: 0.85rem;
+			margin: 10px 0 7px;
+		}
+
+		.featuredImg {
+			width: 80vw;
+			height: 40vw;
+			background: $secondary-color;
+			border-radius: 20px;
+		}
+
+		.descriptionWrapper {
+			width: 75vw;
+			max-width: 550px;
+			p {
+				font-size: 0.7rem;
+				line-height: 1.25rem;
+			}
+		}
+
+		.ctaWrapper {
+			margin-top: 10px;
+
+			a {
+				font-size: 0.7rem;
+				font-weight: 700;
+
+				&::after {
+					content: "→";
+					display: inline-block;
+					margin-left: 10px;
+				}
+				&:hover::after {
+					margin-left: 15px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.featuredSection {
+		margin-top: 2rem;
+
+		.featuredGrid {
+			margin-top: 3rem;
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+
+			h2 {
+				font-size: 0.85rem;
+				margin: 10px 0 7px;
+			}
+
+			.featuredImg {
+				width: 60vw;
+				height: 30vw;
+			}
+
+			.descriptionWrapper {
+				width: 60vw;
+				max-width: 550px;
+				p {
+					font-size: 0.7rem;
+					line-height: 1.25rem;
+				}
+			}
+
+			.ctaWrapper {
+				margin-top: 10px;
+
+				a {
+					font-size: 0.7rem;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 730px) {
+	.featuredSection {
+		margin-top: 3rem;
+
+		.featuredGrid {
+			margin-top: 3rem;
+			display: grid;
+			grid-gap: 25px;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: 1fr;
+
+			h2 {
+				font-size: 0.95rem;
+				margin: 10px 0 7px;
+			}
+
+			.featuredImg {
+				width: 100%;
+				height: 30vw;
+				max-height: 250px;
+			}
+
+			.descriptionWrapper {
+				width: 100%;
+				max-width: 550px;
+				p {
+					font-size: 0.7rem;
+					line-height: 1.25rem;
+				}
+			}
+
+			.ctaWrapper {
+				a {
+					font-size: 0.75rem;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 960px) {
+	.featuredSection {
+		margin-top: 3rem;
+
+		.featuredGrid {
+			grid-gap: 25px;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: 1fr;
+			align-items: left;
+
+			h2 {
+				font-size: 1.2rem;
+			}
+
+			.descriptionWrapper {
+				width: 80%;
+
+				p {
+					font-size: 0.9rem;
+				}
+			}
+
+			.ctaWrapper {
+				a {
+					font-size: 0.95rem;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1270px) {
+	.featuredSection {
+		margin-top: 70px;
+
+		.featuredGrid {
+			margin-top: 70px;
+
+			.featuredCard {
+				width: 100%;
+			}
+
+			h2 {
+				margin: 15px 0 10px;
+			}
+
+			.ctaWrapper {
+				a {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

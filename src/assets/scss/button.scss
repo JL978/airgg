@@ -1,0 +1,100 @@
+.button {
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 20px;
+	font-weight: 500;
+	color: $secondary-text-color;
+	background: $secondary-color;
+	transition: scale 0.05s;
+	white-space: nowrap;
+	font-size: 0.9rem;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.button-secondary {
+	background: none;
+	font-weight: 500;
+}
+
+.button-trend {
+	padding: 15px 20px;
+	display: flex;
+	justify-content: center;
+	min-width: 150px;
+	margin-top: 10px;
+
+	p {
+		font-size: 2rem;
+	}
+
+	.number {
+		opacity: 0.6;
+		margin-left: 15px;
+	}
+
+	&:hover {
+		cursor: pointer;
+		background: $highlight;
+		color: $main-text-color;
+	}
+}
+
+.button-small {
+	padding: 5px 15px;
+	border-radius: 5px;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+.button-trend {
+	padding: 6px 5px;
+	width: min-content;
+	margin-top: 5px;
+
+	p {
+		font-size: 0.6rem;
+	}
+
+	.number {
+		opacity: 0.6;
+		margin-left: 12px;
+	}
+
+	&:hover {
+		cursor: pointer;
+		background: $highlight;
+		color: $main-text-color;
+	}
+}
+
+@media only screen and (min-width: 730px) {
+	.button-trend {
+		padding: 7px 5px;
+		width: min-content;
+		margin-top: 5px;
+
+		p {
+			font-size: 0.6rem;
+		}
+
+		.number {
+			opacity: 0.6;
+			margin-left: 12px;
+		}
+	}
+}
+
+@media only screen and (min-width: 960px) {
+	.button-trend {
+		padding: 7px 10px;
+
+		p {
+			font-size: 0.75rem;
+		}
+	}
+}

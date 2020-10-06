@@ -1,0 +1,204 @@
+footer {
+	background: #1c1c1c;
+	padding: 0 15px;
+
+	.footerWrapper {
+		margin: auto;
+		display: grid;
+		grid-template-rows: 1fr 1fr auto;
+		padding: 35px 0;
+		margin-top: 100px;
+		max-width: 1440px;
+
+		.additionalMarking {
+			grid-column: 1 / -1;
+			display: flex;
+			flex-direction: column;
+			padding-top: 40px;
+		}
+	}
+
+	.info {
+		h1 {
+			opacity: 0.7;
+			margin-bottom: 10px;
+			font-size: 2rem;
+		}
+
+		p {
+			width: 75%;
+			line-height: 1.25rem;
+		}
+
+		.marking {
+			margin-top: 20px;
+		}
+	}
+
+	h4 {
+		opacity: 0.7;
+		font-size: 16px;
+		margin-bottom: 12px;
+	}
+
+	.links {
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 1fr auto;
+
+		.linkColumn {
+			ul {
+				list-style: none;
+				padding: 0;
+
+				li {
+					margin-bottom: 9px;
+					a {
+						font-size: 12px;
+						font-weight: 300;
+						opacity: 0.7;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.mailList {
+		margin-top: 20px;
+		p {
+			font-size: 13px;
+			font-weight: 300;
+		}
+
+		.form {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			grid-gap: 10px;
+			margin-top: 20px;
+
+			input {
+				border: none;
+				width: 90%;
+				border-radius: 5px;
+				padding: 12px;
+				background: $secondary-color;
+				color: $main-text-color;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	footer {
+		padding: $page-padding;
+
+		.mailList {
+			width: 75%;
+			grid-column: 2/-1;
+
+			p {
+				font-size: 0.8rem;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 730px) {
+	footer {
+		.footerWrapper {
+			grid-template-columns: 4fr 5fr;
+			grid-template-rows: 1fr auto;
+
+			.additionalMarking {
+				justify-content: space-between;
+				flex-direction: row;
+				p {
+					width: max-content;
+				}
+			}
+		}
+
+		.mailList {
+			grid-column: 1/2;
+			width: 100%;
+		}
+	}
+}
+
+@media only screen and (min-width: 1170px) {
+	footer {
+		.footerWrapper {
+			grid-template-columns: 1fr 2fr 1fr;
+			padding: 50px 0;
+		}
+
+		.info {
+			p {
+				width: 75%;
+				line-height: 1.35rem;
+			}
+		}
+
+		h4 {
+			font-size: 1rem;
+		}
+
+		.links {
+			.linkColumn {
+				ul {
+					li {
+						a {
+							font-size: 0.95rem;
+						}
+					}
+				}
+			}
+		}
+
+		.mailList {
+			grid-column: 3/-1;
+			margin-top: 0;
+			p {
+				font-size: 0.95rem;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1270px) {
+	footer {
+		.footerWrapper {
+			padding: 50px 0;
+			margin-top: 100px;
+		}
+
+		.info {
+			.marking {
+				margin-top: 75px;
+			}
+		}
+
+		h4 {
+			opacity: 0.7;
+			font-size: 18px;
+			margin-bottom: 12px;
+		}
+
+		.links {
+			.linkColumn {
+				ul {
+					li {
+						a {
+							font-size: 16px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

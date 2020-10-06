@@ -1,0 +1,382 @@
+.navBar {
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr auto;
+	grid-gap: 1rem;
+	height: 5rem;
+
+	.logo {
+		color: $main-text-color;
+		font-size: 20px;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+
+	.mobileButtons {
+		display: flex;
+
+		button {
+			width: 20px;
+			height: 20px;
+			display: flex;
+			align-items: center;
+			background: none;
+			border: none;
+			padding: 0;
+			color: $main-text-color;
+		}
+
+		.button-search {
+			margin-right: 1rem;
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.button-burger {
+			z-index: 11;
+
+			.burger {
+				position: relative;
+				width: 100%;
+				height: 2px;
+				background: $main-text-color;
+				transition: all 0.2s;
+
+				&::before,
+				&::after {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 2px;
+					left: 0;
+					top: -7px;
+					background: $main-text-color;
+					transition: rotate 2s;
+				}
+
+				&::after {
+					top: 7px;
+				}
+
+				&.close {
+					transform: rotate(45deg);
+				}
+				&.close::before,
+				&.close::after {
+					transition: rotate 2s;
+					top: 0px;
+					transform: rotate(-90deg);
+				}
+			}
+		}
+	}
+
+	.searchBar {
+		position: relative;
+		display: flex;
+		height: 1.5rem;
+		max-width: 225px;
+		background: $secondary-color;
+		border-radius: 20px;
+
+		.iconDiv {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0.25rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: text;
+			width: 30px;
+
+			svg {
+				color: rgba(255, 255, 255, 0.3);
+				width: 14px;
+				height: 14px;
+			}
+		}
+
+		input {
+			width: 100%;
+			height: 100%;
+			padding: 0 2rem;
+			border: none;
+			background: none;
+			color: $main-text-color;
+			font-weight: 500;
+			font-size: 0.725rem;
+			line-height: 1rem;
+
+			&::placeholder {
+				color: $secondary-text-color;
+			}
+		}
+	}
+
+	.popUpItems {
+		position: fixed;
+		right: 0px;
+		top: 0px;
+		padding: 4rem 4rem;
+		background: $main-bg-color;
+		height: 100vh;
+		z-index: 10;
+		transition: all 0.2s;
+		overflow-x: hidden;
+		transform: translateX(100%);
+
+		&.open {
+			transform: translateX(0);
+		}
+
+		.navLinks {
+			display: flex;
+			justify-content: center;
+			border-bottom: 1px solid $main-text-color;
+
+			ul {
+				display: flex;
+				list-style: none;
+				flex-direction: column;
+				padding: 0px;
+				margin: 0px;
+				margin-top: 1rem;
+
+				li {
+					margin-bottom: 1.5rem;
+					text-align: center;
+				}
+
+				a {
+					font-size: 0.9rem;
+					line-height: 20px;
+				}
+			}
+		}
+
+		.actionItems {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin-top: 1rem;
+
+			button {
+				margin-bottom: 0.5rem;
+
+				&:hover {
+					transform: scale(1.08);
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.navBar {
+		.logo {
+			font-size: 25px;
+		}
+
+		.searchBar {
+			height: 2rem;
+			max-width: 260px;
+
+			.iconDiv {
+				svg {
+					width: 16px;
+					height: 16px;
+				}
+			}
+
+			input {
+				line-height: 20px;
+				font-size: 0.8rem;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 730px) {
+	.navBar {
+		grid-gap: 1.25rem;
+		.logo {
+			font-size: 30px;
+		}
+
+		.searchBar {
+			max-width: 270px;
+		}
+	}
+}
+
+@media only screen and (min-width: 790px) {
+	.navBar {
+		grid-template-columns: auto 1fr auto;
+
+		.mobileButtons {
+			display: none;
+		}
+
+		.popUpItems {
+			position: relative;
+			padding: 0;
+			height: 100%;
+			transition: none;
+			transform: unset;
+			display: flex;
+			flex-direction: row;
+
+			.navLinks {
+				border: none;
+
+				ul {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: space-between;
+					padding: 0px;
+					margin: 0px;
+
+					li {
+						margin: 0;
+						text-align: left;
+						margin-right: 1rem;
+					}
+
+					a {
+						font-size: 0.85rem;
+						line-height: 20px;
+					}
+				}
+			}
+
+			.actionItems {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				margin: 0;
+				margin-left: 1rem;
+
+				button {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 960px) {
+	.navBar {
+		grid-template-columns: auto auto 1fr;
+
+		.searchBar {
+			width: 100%;
+			max-width: 391px;
+			min-width: 290px;
+			height: 2.3rem;
+
+			.iconDiv {
+				left: 10px;
+			}
+
+			input {
+				width: 100%;
+				height: 100%;
+				padding: 0px 45px;
+				font-size: 1rem;
+			}
+		}
+
+		.popUpItems {
+			display: grid;
+			grid-template-columns: 3fr 2fr;
+			grid-gap: 1rem;
+			.navLinks {
+				ul {
+					width: 100%;
+					display: flex;
+					justify-content: space-around;
+					li {
+						margin: 0px;
+					}
+
+					a {
+						font-size: 1rem;
+					}
+				}
+			}
+
+			.actionItems {
+				display: flex;
+				margin: 0;
+
+				button {
+					font-size: 1rem;
+					&:first-of-type {
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1170px) {
+	.navBar {
+		display: grid;
+		grid-gap: 3rem;
+		.logo {
+			font-weight: 700;
+		}
+
+		.popUpItems {
+			flex-grow: 1;
+			display: flex;
+			width: 100%;
+			.navLinks {
+				flex-grow: 1;
+				ul {
+					display: flex;
+					list-style: none;
+					justify-content: space-evenly;
+
+					li {
+						margin-right: 50px;
+					}
+
+					a {
+						color: $main-text-color;
+						text-decoration: none;
+						font-size: $main-font-size;
+						line-height: 20px;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+
+			.actionItems {
+				display: flex;
+				justify-self: flex-end;
+
+				button {
+					margin-left: 30px;
+					padding: 10px 30px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1270px) {
+	.navBar {
+		.searchBar {
+			width: 391px;
+		}
+	}
+}

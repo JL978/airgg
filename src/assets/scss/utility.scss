@@ -1,0 +1,31 @@
+.ellipsis-one-line {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.no-outline {
+	&:focus {
+		outline: none;
+	}
+}
+
+%card-hover {
+	transition: all 0.2s;
+
+	&:hover {
+		cursor: pointer;
+		transform: translateY($card-hover-distance);
+	}
+}
+
+%scrollX {
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@import "./button.scss";

@@ -1,0 +1,12 @@
+.frontPage {
+	margin: auto;
+	max-width: 1440px;
+	padding: 0px 15px;
+	overflow-x: hidden;
+}
+
+@media only screen and (min-width: 600px) {
+	.frontPage {
+		padding: $page-padding;
+	}
+}
