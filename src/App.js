@@ -7,18 +7,22 @@ import Benefits from "./components/Benefits";
 import Featured from "./components/Featured";
 import HelpCTA from "./components/HelpCTA";
 import BrowseMore from "./components/BrowseMore";
+import Footer from "./components/Footer";
 
 function App() {
 	return (
-		<FrontPage>
-			<Navbar />
-			<Hero />
-			<TrendingSection />
-			<Benefits />
-			<Featured />
-			<HelpCTA />
-			<BrowseMore />
-		</FrontPage>
+		<>
+			<FrontPage>
+				<Navbar />
+				<Hero />
+				<TrendingSection />
+				<Benefits />
+				<Featured />
+				<HelpCTA />
+				<BrowseMore />
+			</FrontPage>
+			<Footer />
+		</>
 	);
 }
 
