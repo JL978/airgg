@@ -1,6 +1,6 @@
 import React from "react";
 import FeaturedCard from "./FeaturedCard";
-import ProductRow from "./ProductRow";
+import ProductRow from "../ProductRow";
 
 const dummyFeatured = [
 	{

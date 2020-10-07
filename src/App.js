@@ -1,12 +1,12 @@
 import React from "react";
-import FrontPage from "./components/FrontPage";
+import FrontPage from "./components/front-page/FrontPage";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import TrendingSection from "./components/TrendingSection";
-import Benefits from "./components/Benefits";
-import Featured from "./components/Featured";
-import HelpCTA from "./components/HelpCTA";
-import BrowseMore from "./components/BrowseMore";
+import Hero from "./components/front-page/Hero";
+import TrendingSection from "./components/front-page/TrendingSection";
+import Benefits from "./components/front-page/Benefits";
+import Featured from "./components/front-page/Featured";
+import HelpCTA from "./components/front-page/HelpCTA";
+import BrowseMore from "./components/front-page/BrowseMore";
 import Footer from "./components/Footer";
 
 function App() {

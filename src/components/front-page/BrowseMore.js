@@ -1,5 +1,5 @@
 import React from "react";
-import ProductRow from "./ProductRow";
+import ProductRow from "../ProductRow";
 
 const dummyBrowse = [
 	{
