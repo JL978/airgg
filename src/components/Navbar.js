@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Icon from "./icons";
 
-export default function Navbar() {
+export default function Navbar({ children }) {
 	const [query, setQuery] = useState("");
 	const [popUp, setpopUp] = useState(false);
 
@@ -28,15 +28,9 @@ export default function Navbar() {
 			<div className={`popUpItems ${popUp ? "open" : ""}`}>
 				<div className="navLinks">
 					<ul>
-						<li>
-							<a href="/">Explore</a>
-						</li>
-						<li>
-							<a href="/">Security</a>
-						</li>
-						<li>
-							<a href="/">Support</a>
-						</li>
+						{children.map((component) => (
+							<li>{component}</li>
+						))}
 					</ul>
 				</div>
 

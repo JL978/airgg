@@ -7,6 +7,7 @@ body {
 	margin: 0;
 	background: $main-bg-color;
 	overflow-x: hidden;
+
 	a {
 		text-decoration: none;
 		color: $main-text-color;
@@ -33,7 +34,7 @@ body {
 }
 
 //components styling
-@import "./assets/scss/components/front-page.scss";
+@import "./assets/scss/pageWrapper.scss";
 @import "./assets/scss/components/navbar.scss";
 @import "./assets/scss/components/hero.scss";
 @import "./assets/scss/components/trending.scss";
