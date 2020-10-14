@@ -3,7 +3,9 @@
 	max-width: 1440px;
 	padding: 0px 15px;
 	overflow-x: hidden;
-	min-height: 50vh;
+	min-height: 60vh;
+	display: flex;
+	flex-direction: column;
 }
 
 @media only screen and (min-width: 600px) {

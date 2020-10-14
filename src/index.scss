@@ -2,7 +2,7 @@
 @import "./assets/scss/utility.scss";
 
 body {
-	font-family: Inter, sans-serif;
+	font-family: Poppins, Inter, sans-serif;
 	box-sizing: border-box;
 	margin: 0;
 	background: $main-bg-color;
@@ -43,3 +43,5 @@ body {
 @import "./assets/scss/components/featured.scss";
 @import "./assets/scss/components/help.scss";
 @import "./assets/scss/components/footer.scss";
+
+@import "./assets/scss/pages/productPage.scss";
