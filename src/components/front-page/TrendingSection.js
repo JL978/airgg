@@ -3,22 +3,31 @@ import CategoryCard from "../CategoryCard";
 import TrendingTag from "./TrendingTag";
 //import TrendingFeaturedCard from "./TrendingFeaturedCard";
 
+import roblox from "../../assets/images/roblox.jpg";
+import fortnite from "../../assets/images/fortnite2.jpg";
+import gta from "../../assets/images/gta.jpg";
+import valorant from "../../assets/images/valorant.jpg";
+
 const dummyTrending = [
 	{
 		name: "Roblox",
 		products: 16298,
+		url: roblox,
 	},
 	{
 		name: "Fortnite",
 		products: 12642,
+		url: fortnite,
 	},
 	{
 		name: "Grand Theft Auto 5",
 		products: 5264,
+		url: gta,
 	},
 	{
 		name: "Valorant",
 		products: 1552,
+		url: valorant,
 	},
 ];
 const dummyOther = [

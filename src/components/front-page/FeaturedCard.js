@@ -4,7 +4,14 @@ export default function FeaturedCard({ feature }) {
 	return (
 		<div className="featuredCard">
 			<a href="/">
-				<div className="featuredImg"></div>
+				<div
+					className="featuredImg"
+					style={{
+						backgroundImage: `url(${feature.image})`,
+						backgroundPosition: "center",
+						backgroundSize: "cover",
+					}}
+				></div>
 			</a>
 			<a href="/">
 				<h2>{feature.title}</h2>
